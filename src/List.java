@@ -85,7 +85,7 @@ class List
 
 	public void gpaSort(){
 		for (int p = 0; p<size; p++)
-			for (int q = 0; q<size-p; q++)
+			for (int q = 0; q<size-1-p; q++)
 				if(student[q].gpa<student[q+1].gpa)
 					swap(q,q+1);
 			
