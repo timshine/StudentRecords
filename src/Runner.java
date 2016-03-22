@@ -27,18 +27,18 @@ public class Runner
 		studentArray.display("STUDENTS SORTED IN ASCENDING ORDER BY ID#");
 		studentArray.pause();	
 		
-//		int studentID = getID();
-//		int index = studentArray.search(studentID);
-//		
-//		if (index == -1)
-//		    System.out.println("There is no student with an ID# of "+studentID+".\n");
-//		else
-//		{
-//			studentArray.displayStudent(index);   // displays the information for the found student
-//			studentArray.delete(index);           // remove the same student from the array
-//			studentArray.display("STUDENTS SORTED IN ASCENDING ORDER BY ID# WITHOUT STUDENT# "+studentID);
-//			studentArray.pause();
-//		}    
+		int studentID = getID();
+		int index = studentArray.search(studentID);
+		
+		if (index == -1)
+		    System.out.println("There is no student with an ID# of "+studentID+".\n");
+		else
+		{
+			studentArray.displayStudent(index);   // displays the information for the found student
+			studentArray.delete(index);           // remove the same student from the array
+			studentArray.display("STUDENTS SORTED IN ASCENDING ORDER BY ID# WITHOUT STUDENT# "+studentID);
+			studentArray.pause();
+		}    
 	}
 	
 	public static int getID()

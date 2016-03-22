@@ -71,6 +71,10 @@ class List
 
 	public void displayStudent(int index)
 	{
+		System.out.println("\nStudent Record for ID# "+ student[index].id+ "\n");
+		System.out.println("Name: " + student[index].name);
+		System.out.println("Age:  " + student[index].age);
+		System.out.println("GPA:  " + student[index].gpa);
 		
 	}   
 
@@ -91,24 +95,58 @@ class List
 			
 	}
 	
-
+ 
 	public void ageSort()
 	{
-
+		for (int p = 0; p<size; p++)
+			for (int q = 0; q<size-1-p; q++)
+				if(student[q].age>student[q+1].age)
+					swap(q,q+1);
+		
 	}
 	
 	public void idSort()
 	{
-
+		for (int p = 0; p<size; p++)
+			for (int q = 0; q<size-1-p; q++)
+				if(student[q].id>student[q+1].id)
+					swap(q,q+1);
 	}
 	
-//	public int search(int studentID)
-//	{
+	public int search(int studentID)
+	{
+		idSort();
+		
+		boolean found = false;
+		int lo = 0;
+		int hi = size-1;
+		int mid = 0;
+		while (lo <= hi && !found)
+		{
+			mid = (lo + hi) / 2;
+			if (student[mid].id == studentID)
+				found = true;
+			else
+			{
+				if (studentID > student[mid].id)
+					lo = mid + 1;
+				else
+					hi = mid - 1;
+			}
+		}
+		if (found)
+			return mid;
+		else
+			return -1;
 
-//	}		
+	}		
 	
 	public void delete(int index)
 	{
+		for(int k = index; k < size-1; k++){
+			student[k] = student[k+1];
+		}
+		size--;
 		// Precondition:  "index" stores the index of a student object that exists in the "student" array.
 		// Postcondition: The student object at index "index" is removed from the "student" array.
 		//                All other objects in the "student" array are unaffected.
